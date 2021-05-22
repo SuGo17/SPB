@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  background: #fafbff;
+}
+.section {
+  padding: 4rem 10rem;
+}
+.title {
+  font-size: 3rem;
+  color: #225566;
+  font-weight: 400;
+  border-bottom: 2px solid #225566;
+}
+/* --------------------------------------section-1------------------------------------------------ */
+.home {
+  padding: 0 0 2rem 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #e9eef3;
+}
+/* --------nav-bar------- */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10vh;
+  padding: 1rem 10rem;
+  background: #fff;
+  z-index: 5;
+}
+.logo h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #225566;
+}
+.logo h2 span {
+  letter-spacing: 5px;
+}
+.nav-bar ul {
+  display: flex;
+  align-items: center;
+  width: 35%;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav-links {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #222;
+  padding: 5px;
+  font-weight: 500;
+  border-bottom: 2px solid #fff;
+  transition: all 0.4s;
+}
+.nav-links:hover {
+  color: #225566;
+  border-bottom: 2px solid #225566;
+}
+.nav-btn {
+  padding: 5px 20px;
+  border: 2px solid #225566;
+}
+.nav-btn:hover {
+  border: 2px solid #225566;
+  background: #225566;
+  color: #fff;
+}
+/* --------home-top----- */
+.home-top {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  background: #225566;
+  color: #fff;
+  padding: 5rem 10rem;
+}
+.home-top-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+}
+.home-top-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #fff;
+}
+.home-top-name {
+  font-size: 3.3rem;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+  margin-top: 5rem;
+}
+.home-top-years {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  position: relative;
+  padding: 0 10px;
+}
+.home-top-years::after,
+.home-top-years::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 1.5px;
+  background: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.home-top-years::after {
+  right: 100%;
+}
+.home-top-years::before {
+  left: 100%;
+}
+.home-top-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 5px 20px;
+  width: 16rem;
+  margin-top: 5rem;
+  border: 2px solid #fff;
+  transition: all 0.4s ease-in-out;
+}
+.home-top-btn ion-icon {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 0;
+  transition: all 0.4s ease-in-out;
+}
+.home-top-btn:hover ion-icon {
+  width: 20px;
+  margin-left: 0.75rem;
+}
+.home-top-btn:hover {
+  color: #222;
+  background: #fff;
+}
+.home-top-img {
+  position: absolute;
+  right: 10.5rem;
+  top: 10rem;
+  height: 95%;
+  z-index: 5;
+}
+.back-img-1,
+.back-img-2 {
+  position: absolute;
+  height: 60%;
+}
+.back-img-1 {
+  right: 0;
+  top: 0;
+}
+.back-img-2 {
+  left: 0;
+  top: 60%;
+}
+/* --------------------------------------section-2  Bio------------------------------------------------ */
+.bio {
+  display: flex;
+  flex-direction: column;
+  background-color: #fafbff;
+}
+.bio-title {
+  width: fit-content;
+  align-self: center;
+  margin-bottom: 3rem;
+}
+.bio-content {
+  display: flex;
+  align-items: center;
+}
+/* ------------bio-left--------- */
+.bio-left {
+  width: 70%;
+  font-size: 1.5rem;
+  padding: 2rem;
+  margin-right: 0rem;
+  background: #fff;
+  box-shadow: 0 0 25px 5px #eaeaea;
+}
+/* ------------bio-right--------- */
+.bio-right {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2rem;
+  align-items: center;
+}
+.bio-right img {
+  width: 80%;
+  margin-bottom: 1.75rem;
+}
+.bio-right-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 0 25px 5px #eaeaea;
+}
+.bio-box {
+  display: flex;
+  margin-bottom: 0.65rem;
+}
+.bio-box:first-child span {
+  margin-right: 4rem;
+}
+.bio-box:nth-child(2) span,
+.bio-box:nth-child(3) span {
+  margin-right: 5rem;
+}
+.bio-box:last-child span {
+  margin-right: 2.5rem;
+}
+.bio-box:last-child ul {
+  list-style: none;
+}
+/*---------------------------------------------top-tbn----------------------------------------------------------*/
+.top-btn {
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #225566;
+}
+/* --------------------------------------------section-3--------------------------------------------------------- */
+.awards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #22566726;
+  position: relative;
+}
+.awards-title {
+  margin-bottom: 5rem;
+}
+.awards ol {
+  font-size: 1.5rem;
+  width: 75%;
+  z-index: 5;
+  background: #fff;
+  padding: 5rem;
+  box-shadow: 0 0 25px 10px #eaeaea;
+}
+.awards ol li {
+  /* margin-bottom: 2rem; */
+  padding: 1.5rem 0.5rem;
+  border-bottom: 1px solid #22566726;
+}
+.awards ol li:last-child {
+  margin-bottom: 0;
+}
+.awards ol li:first-child {
+  margin-top: 0;
+  border-top: 1px solid #22566726;
+}
+/* --------------------------------------------section-4--------------------------------------------------------- */
+.songs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.songs-title {
+  margin-bottom: 5rem;
+}
+.songs-content {
+  display: flex;
+  align-items: center;
+}
+.songs-list {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 25px 5px #22566726;
+  margin-right: 10rem;
+}
+.song-link {
+  font-size: 1.2rem;
+  color: #333;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #22566726;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.song-link:hover {
+  background: #22566726;
+  text-decoration: underline;
+  color: #000;
+}
+.songs-right {
+  display: flex;
+  flex-direction: column;
+}
+.songs-right iframe {
+  height: 380px;
+  width: 700px;
+  margin-bottom: 4rem;
+}
+.song-name {
+  font-size: 1.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 2px solid #444;
+  border-bottom: 2px solid #444;
+}
+/* --------------------------------------------Footer--------------------------------------------------------- */
+.footer {
+  padding: 2rem 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #2256672a;
+}
+.news-letter {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.news-letter-title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #225566;
+  letter-spacing: 5px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.news-letter-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.news-letter-content form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.news-letter-content input {
+  width: 80%;
+  height: 4rem;
+  font-size: 1.5rem;
+  border: 2px solid #225566;
+  padding: 2rem;
+  margin-right: 0.5rem;
+  background: none;
+  outline: none;
+}
+.subscribe {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 1.1rem 5rem;
+  border: 2.5px solid #225566;
+  background: #225566;
+  cursor: pointer;
+  z-index: 0;
+  outline: none;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.copyrights {
+  font-size: 1.5rem;
+  color: #666;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+.social-links a {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  color: #222;
+}
+.facebook:hover {
+  color: #4267b2;
+}
+.twitter:hover {
+  color: #1da1f2;
+}
+.insta:hover {
+  color: #e95950;
+}
+.youtube:hover {
+  color: #ff0000;
+}
