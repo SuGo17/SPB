@@ -1,4 +1,7 @@
-const nav = document.querySelector("nav ul");
+const navUl = document.querySelector("nav ul");
+const nav = document.querySelector("nav");
+const navBtn = document.querySelector(".menu");
+const readMore = document.querySelector(".read-more");
 const knowmore = document.querySelector(".home-top-btn");
 const topBtn = document.querySelector(".top-btn");
 const songsChange = document.querySelectorAll(".song-link");
@@ -16,19 +19,40 @@ const songLinks = [
   "https://www.youtube.com/embed/PjYRNaAucg8",
   "https://www.youtube.com/embed/dm5JtRCxnLM",
 ];
-nav.addEventListener("click", (e) => {
+const navCommon = () => {
+  navUl.classList.toggle("nav-on");
+  navBtn.name === "menu-outline"
+    ? ((navBtn.name = "close-outline"), (navBtn.style.color = "#fff"))
+    : ((navBtn.name = "menu-outline"), (navBtn.style.color = "#333"));
+};
+navUl.addEventListener("click", (e) => {
   e.preventDefault();
   const element = e.target;
   const targetId = element.getAttribute("href");
   const targetElement = document.querySelector(targetId);
-  targetElement?.scrollIntoView({ behavior: "smooth" });
+  const coords = targetElement?.getBoundingClientRect();
+  if (coords) {
+    window.scroll({
+      top: coords?.top + window.pageYOffset - nav.clientHeight,
+      left: coords?.left + window.pageXOffset,
+      behavior: "smooth",
+    });
+  }
+  if (document.querySelector("body").clientWidth <= "768") {
+    navCommon();
+  }
 });
 
 knowmore.addEventListener("click", (e) => {
   e.preventDefault();
   const targetId = knowmore.getAttribute("href");
   const targetElement = document.querySelector(targetId);
-  targetElement.scrollIntoView({ behavior: "smooth" });
+  const coords = targetElement?.getBoundingClientRect();
+  window.scroll({
+    top: coords.top + window.pageYOffset - nav.clientHeight,
+    left: coords.left + window.pageXOffset,
+    behavior: "smooth",
+  });
 });
 
 topBtn.addEventListener("click", (e) => {
@@ -47,3 +71,13 @@ songsChange.forEach((ele, i) => {
     iframe.src = songLinks[i];
   };
 });
+// #225566
+navBtn.onclick = () => {
+  navCommon();
+};
+
+readMore.onclick = () => {
+  const bioTxt = document.querySelector(".bio-left");
+  bioTxt.style.overflow = "auto";
+  readMore.style.display = "none";
+};
