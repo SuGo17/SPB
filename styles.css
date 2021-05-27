@@ -17,9 +17,16 @@ main {
 }
 .title {
   font-size: 3rem;
-  color: #225566;
+  color: #333;
   font-weight: 400;
   border-bottom: 2px solid #225566;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  width: 0.3rem;
+  background: #333;
 }
 /* --------------------------------------section-1------------------------------------------------ */
 .home {
@@ -42,7 +49,7 @@ main {
 .logo h2 {
   font-size: 2.5rem;
   font-weight: 400;
-  color: #225566;
+  color: #333;
 }
 .logo h2 span {
   letter-spacing: 5px;
@@ -53,6 +60,7 @@ main {
   width: 35%;
   justify-content: space-between;
   list-style: none;
+  transition: all 0.5s;
 }
 .nav-links {
   font-size: 1.5rem;
@@ -64,33 +72,64 @@ main {
   transition: all 0.4s;
 }
 .nav-links:hover {
-  color: #225566;
+  color: #333;
   border-bottom: 2px solid #225566;
 }
 .nav-btn {
   padding: 5px 20px;
   border: 2px solid #225566;
+  background: transparent;
+  position: relative;
+  transition: all 0.8s;
+}
+.nav-btn::before {
+  content: " ";
+  width: 1rem;
+  height: 1rem;
+  opacity: 0;
+  position: absolute;
+  background: #225566;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: 0.8s;
+}
+.nav-btn:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
 }
 .nav-btn:hover {
-  border: 2px solid #225566;
   background: #225566;
   color: #fff;
+}
+.menu {
+  position: fixed;
+  z-index: 5;
+  color: #333;
+  font-size: 3.5rem;
+  cursor: pointer;
+  right: 10rem;
+  top: 1rem;
+  display: none;
 }
 /* --------home-top----- */
 .home-top {
   width: 100%;
-  height: 80%;
+  height: 100vh;
   position: relative;
   background: #225566;
   color: #fff;
   padding: 5rem 10rem;
+  display: flex;
+  align-items: center;
 }
 .home-top-text {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10rem;
 }
 .home-top-title {
   font-size: 3.5rem;
@@ -132,17 +171,38 @@ main {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  background: transparent;
+  position: relative;
   color: #fff;
+  z-index: 1;
   font-size: 1.5rem;
   font-weight: 600;
   padding: 5px 20px;
   width: 16rem;
   margin-top: 5rem;
   border: 2px solid #fff;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.75s;
+}
+.home-top-btn::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  background: #ffffffcc;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+.home-top-btn:hover:before {
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
 }
 .home-top-btn ion-icon {
-  color: #222;
+  color: #000;
   font-size: 1.5rem;
   font-weight: 600;
   width: 0;
@@ -153,14 +213,15 @@ main {
   margin-left: 0.75rem;
 }
 .home-top-btn:hover {
-  color: #222;
+  color: #000;
   background: #fff;
 }
 .home-top-img {
   position: absolute;
-  right: 10.5rem;
-  top: 10rem;
-  height: 95%;
+  right: 0%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 22.5%;
   z-index: 5;
 }
 .back-img-1,
@@ -266,7 +327,6 @@ main {
 .awards ol {
   font-size: 1.5rem;
   width: 75%;
-  z-index: 5;
   background: #fff;
   padding: 5rem;
   box-shadow: 0 0 25px 10px #eaeaea;
@@ -312,7 +372,7 @@ main {
   transition: all 0.3s ease-in-out;
 }
 .song-link:hover {
-  background: #22566726;
+  background: #6e6c6c3f;
   text-decoration: underline;
   color: #000;
 }
@@ -321,8 +381,8 @@ main {
   flex-direction: column;
 }
 .songs-right iframe {
-  height: 380px;
-  width: 700px;
+  height: 350px;
+  width: 650px;
   margin-bottom: 4rem;
 }
 .song-name {
@@ -348,7 +408,7 @@ main {
 .news-letter-title {
   font-size: 2rem;
   font-weight: 400;
-  color: #225566;
+  color: #333;
   letter-spacing: 5px;
   margin-bottom: 3rem;
   text-align: center;
@@ -380,8 +440,10 @@ main {
   font-size: 1.5rem;
   color: #fff;
   padding: 1.1rem 5rem;
+  letter-spacing: 3.5px;
   border: 2.5px solid #225566;
   background: #225566;
+  text-transform: uppercase;
   cursor: pointer;
   z-index: 0;
   outline: none;
@@ -406,7 +468,7 @@ main {
 .social-links a {
   font-size: 2.5rem;
   margin-right: 1.5rem;
-  color: #222;
+  color: #225566;
 }
 .facebook:hover {
   color: #4267b2;
@@ -419,4 +481,387 @@ main {
 }
 .youtube:hover {
   color: #ff0000;
+}
+/* --------------------------------------responsive----------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .nav-bar ul {
+    width: 65%;
+  }
+  .home-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-top-img {
+    position: static;
+    max-width: 35.5%;
+    width: 100%;
+    transform: none;
+  }
+  .home-top-title {
+    font-size: 3rem;
+  }
+  .home-top-name {
+    font-size: 2.5rem;
+  }
+  .home-top-text {
+    margin: 0;
+  }
+  .bio {
+    padding: 7rem;
+  }
+  .bio-content {
+    flex-direction: column;
+  }
+  .bio-left {
+    order: 2;
+    width: 100%;
+    padding: 1.8rem;
+    height: 40vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .bio-left::after {
+    content: "Read more...";
+    position: absolute;
+    height: 4rem;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #fff;
+    background: #333;
+  }
+  .bio-right {
+    order: 1;
+    width: 100%;
+    margin-bottom: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .bio-right img {
+    width: 40%;
+    max-width: 33%;
+    margin: 0 2rem 0 0;
+  }
+  .bio-right-text {
+    width: 100%;
+    max-width: 50%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+  .awards {
+    padding: 4rem 7rem;
+  }
+  .awards-title {
+    margin-bottom: 4rem;
+  }
+  .awards ol {
+    font-size: 1.8rem;
+    width: 100%;
+    padding: 2.5rem;
+  }
+  .songs {
+    padding: 3rem 7rem;
+  }
+  .song-link {
+    text-align: center;
+  }
+  .songs-title {
+    margin-bottom: 4rem;
+  }
+  .songs-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .songs-list {
+    order: 2;
+    width: 100%;
+    margin: 0;
+  }
+  .songs-right {
+    order: 1;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+  .songs-right iframe {
+    width: 100%;
+    height: 480px;
+  }
+  .footer {
+    padding: 4rem 7rem;
+  }
+  .news-letter {
+    width: 100%;
+    flex-direction: column;
+  }
+  .footer-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .social-links {
+    position: static;
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 1rem 7rem;
+    position: fixed;
+    width: 100%;
+  }
+  .logo h2 {
+    font-size: 3.5rem;
+  }
+  nav ul {
+    position: fixed;
+    flex-direction: column;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100%;
+    background: #225566;
+    top: 0%;
+    right: -100%;
+    z-index: 5;
+  }
+  nav ul li {
+    margin: 2rem 0;
+  }
+  .nav-links {
+    color: #fff;
+    border-bottom: 2px solid #225566;
+  }
+  .nav-links:hover {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+  }
+  .nav-btn {
+    border: 2px solid #fff;
+    font-size: 2rem;
+  }
+  .nav-btn:hover {
+    color: #225566;
+    background: #fff;
+  }
+  .nav-btn::before {
+    background: #fff;
+  }
+  .menu {
+    display: block;
+    right: 7rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, -50%);
+    font-size: 5rem;
+  }
+  .home-top {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    height: 100vh;
+    padding: 5rem 7rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-top-text {
+    width: 100%;
+    margin-top: 2rem;
+    order: 2;
+  }
+  .home-top-img {
+    position: static;
+    width: 55%;
+    max-width: 45%;
+    z-index: 0;
+    margin-top: 3rem;
+  }
+  .home-top-name,
+  .home-top-btn {
+    margin-top: 2rem;
+  }
+  .title,
+  .home-top-title {
+    font-size: 3rem;
+  }
+  .home-top-btn:hover ion-icon {
+    display: none;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+  .back-img-1,
+  .back-img-2 {
+    display: none;
+  }
+  .home-top-name {
+    font-size: 2.8rem;
+  }
+  .bio-right img {
+    width: 50%;
+    max-width: 60%;
+  }
+  .bio-right-text {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+  }
+  .songs-right iframe {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .song-link {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .nav-bar {
+    padding: 1rem 3rem;
+  }
+  .logo h2 {
+    font-size: 1.8rem;
+  }
+  .menu {
+    right: 4rem;
+    font-size: 3rem;
+  }
+  .title,
+  .home-top-title {
+    font-size: 2.5rem;
+  }
+  .home-top-img {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5rem;
+    transform: none;
+  }
+  .home-top {
+    padding: 5rem;
+    height: 100vh;
+  }
+  .home-top-name,
+  .home-top-btn {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+  .home-top-btn {
+    font-size: 1.5rem;
+  }
+  .home-top-years {
+    font-size: 1.5rem;
+  }
+  .home-top-btn:hover ion-icon {
+    display: none;
+  }
+  .bio {
+    padding: 4rem;
+  }
+  .bio-left {
+    font-size: 1.35rem;
+    height: 50vh;
+  }
+  .bio-left::after {
+    font-size: 2rem;
+  }
+  .bio-right {
+    margin-bottom: 2rem;
+    margin-right: 0;
+    flex-direction: column;
+    padding: 0;
+  }
+  .bio-right img {
+    width: 100%;
+    margin: 0;
+    max-width: 75%;
+  }
+  .bio-right-text {
+    width: 100%;
+    padding: 0.75rem;
+    max-width: 100%;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .awards {
+    padding: 4rem 2rem;
+  }
+  .awards-title {
+    margin-bottom: 3rem;
+  }
+  .awards ol {
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
+  .songs {
+    padding: 4rem 2rem;
+  }
+  .songs-title {
+    margin-bottom: 3rem;
+  }
+  .songs-right iframe {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .song-link {
+    font-size: 1.1rem;
+  }
+  .footer {
+    padding: 2rem;
+  }
+  .news-letter-title {
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
+  }
+  .news-letter-content {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}
+@media screen and (max-width: 330px) {
+  .home-top,
+  .bio,
+  .song,
+  .awards,
+  .footer {
+    padding: 2rem;
+  }
+  .home-top-img {
+    width: 80%;
+  }
+  .home-top-title {
+    font-size: 2rem;
+  }
+  .home-top-name {
+    font-size: 1.5rem;
+  }
+  .home-top-years {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 545px) {
+  .news-letter-content {
+    margin-bottom: 2rem;
+  }
+  .news-letter-content form {
+    width: 100%;
+    flex-direction: column;
+  }
+  .news-letter-content input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .subscribe {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+  }
+  .copyrights {
+    font-size: 1.25rem;
+  }
 }
