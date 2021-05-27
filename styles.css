@@ -30,7 +30,7 @@ main {
 }
 /* --------------------------------------section-1------------------------------------------------ */
 .home {
-  padding: 0 0 2rem 0;
+  padding: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -40,6 +40,9 @@ main {
 .nav-bar {
   display: flex;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
   justify-content: space-between;
   min-height: 10vh;
   padding: 1rem 10rem;
@@ -47,7 +50,7 @@ main {
   z-index: 5;
 }
 .logo h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 400;
   color: #333;
 }
@@ -73,7 +76,7 @@ main {
 }
 .nav-links:hover {
   color: #333;
-  border-bottom: 2px solid #225566;
+  border-bottom: 2px solid #333;
 }
 .nav-btn {
   padding: 5px 20px;
@@ -106,13 +109,17 @@ main {
 }
 .menu {
   position: fixed;
-  z-index: 5;
+  z-index: 50;
   color: #333;
   font-size: 3.5rem;
   cursor: pointer;
   right: 10rem;
   top: 1rem;
   display: none;
+  transition: all 0.5s;
+}
+.nav-on {
+  right: 0;
 }
 /* --------home-top----- */
 .home-top {
@@ -124,6 +131,7 @@ main {
   padding: 5rem 10rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .home-top-text {
   width: 50%;
@@ -217,17 +225,14 @@ main {
   background: #fff;
 }
 .home-top-img {
-  position: absolute;
-  right: 0%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 22.5%;
-  z-index: 5;
+  z-index: 1;
 }
 .back-img-1,
 .back-img-2 {
   position: absolute;
   height: 60%;
+  z-index: 0;
 }
 .back-img-1 {
   right: 0;
@@ -260,6 +265,12 @@ main {
   margin-right: 0rem;
   background: #fff;
   box-shadow: 0 0 25px 5px #eaeaea;
+}
+.bio-left::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.read-more {
+  display: none;
 }
 /* ------------bio-right--------- */
 .bio-right {
@@ -468,7 +479,7 @@ main {
 .social-links a {
   font-size: 2.5rem;
   margin-right: 1.5rem;
-  color: #225566;
+  color: #333;
 }
 .facebook:hover {
   color: #4267b2;
@@ -522,9 +533,11 @@ main {
     overflow: hidden;
     position: relative;
   }
-  .bio-left::after {
-    content: "Read more...";
+  .read-more {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 4rem;
     width: 100%;
     bottom: 0;
@@ -532,7 +545,7 @@ main {
     font-size: 2.5rem;
     text-align: center;
     color: #fff;
-    background: #333;
+    background: #225566;
   }
   .bio-right {
     order: 1;
@@ -645,7 +658,7 @@ main {
     font-size: 2rem;
   }
   .nav-btn:hover {
-    color: #225566;
+    color: #333;
     background: #fff;
   }
   .nav-btn::before {
