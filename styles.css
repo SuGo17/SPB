@@ -689,7 +689,7 @@ main {
   .home-top-img {
     position: static;
     width: 55%;
-    max-width: 45%;
+    max-width: 200px;
     z-index: 0;
     margin-top: 3rem;
   }
@@ -751,7 +751,7 @@ main {
   }
   .home-top-img {
     width: 100%;
-    max-width: 100%;
+    max-width: 250px;
     margin-top: 5rem;
     transform: none;
   }
